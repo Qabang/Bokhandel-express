@@ -4,7 +4,7 @@
   transform: rotate(180deg);
 }
 
-th:not(.stores),
+th:not(.stores, .authors),
 tbody > tr:not(.stores) {
   cursor: pointer;
 }
@@ -37,6 +37,22 @@ footer h3 {
 
 nav {
   background: rgb(109, 15, 81);
+}
+
+ul > li {
+  list-style-type: none;
+}
+
+ul > li i {
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+a {
+  color: rgb(109, 15, 81);
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: capitalize;
 }
 
 .tooltip-form {

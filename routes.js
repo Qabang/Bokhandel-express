@@ -116,7 +116,7 @@ router.get('/authors/:id', async (req, res) => {
       inner join böcker b ON r.ISBN13 = b.ISBN13
       Where f.författarID = @id
       order by Titel`)
-
+    console.log(result.recordset)
     res.render('books-author', { authors: result.recordset })
   } catch (error) {
     console.error(error.message)

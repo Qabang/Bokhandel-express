@@ -5,16 +5,16 @@ body
   section.d-flex.flex-wrap.justify-content-center.m-5
     h1 Våra Författare 
 
-    table.table
-      thead.thead-dark
+    table.table.table-hover 
+      thead.thead-dark.authors
         tr
           each author,index in authors 
             if index === 0
                 each key in Object.keys(author)
                   if key === 'FörfattarID'
-                    th #
+                    th.authors #
                   else
-                    th=key
+                    th.authors=key
       tbody 
         each author,i in authors 
           tr(onclick=`goToAuthor(${author.FörfattarID})`)          

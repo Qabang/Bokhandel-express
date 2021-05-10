@@ -3,18 +3,21 @@ include head.pug
 body 
   include navigation.pug 
 
-  section.d-flex.flex-wrap.justify-content-center.m-5-flex-column
+  section.d-flex.flex-wrap.m-5.flex-column
     a(href="/authors").col-12.font-weight-bold.text-dark.m-5
           i.bi.bi-arrow-left 
           span Tillbaka till alla Författare 
     if authors.length > 0 
-      h1.col-12.m-5.text-center Titlar av #{authors[0].namn}
+      h1.text-center.m-3 Titlar av  #{authors[0].namn}
 
-      ul  
+      ul.mx-auto.p-0
         each item in authors
           each book,key in item
             if key === 'Titel'
-              li= book
+              li.p-0
+                a(href=`/book/${item.ISBN13}`)
+                  i.bi.bi-book-fill
+                  span=book
     else 
       p Vi har tyvärr inga böcker från denna författaren.
 
