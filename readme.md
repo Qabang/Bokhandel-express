@@ -8,5 +8,9 @@
 
 ### Run the application
 
-When you are done with the import run `npm run dev` in the root folder.
-Access the application locally at [http://loclahost:3000]
+When you are done with the import run the following commands in the root folder:
+
+- `npm install`.
+- `npm run dev`.
+
+If no errors occured you can visit the application at [http://loclahost:3000]
