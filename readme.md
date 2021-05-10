@@ -13,4 +13,4 @@ When you are done with the import run the following commands in the root folder:
 - `npm install`.
 - `npm run dev`.
 
-If no errors occured you can visit the application at [http://loclahost:3000]
+If no errors occured you can visit the application at [http://localhost:3000](http://localhost:3000/)
