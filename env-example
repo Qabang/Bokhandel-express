@@ -1,0 +1,4 @@
+DB_HOST=localhost //SERVER NAME
+DB_USER=root // DB USER
+DB_PASS=s1mpl3 //DB USER PASSWORD
+DB_NAME=name // DB NAME

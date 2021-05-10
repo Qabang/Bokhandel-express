@@ -1,0 +1,30 @@
+include head.pug
+
+body 
+  include navigation.pug 
+  section.d-flex.flex-wrap.justify-content-center.m-5
+    h1 Butikerna
+
+    table.table
+      thead.thead-dark.stores
+        tr.stores
+          each store,index in stores 
+            if index === 0
+                each key in Object.keys(store)
+                  if key != 'ButikID'
+                    th.stores=key
+      tbody.stores 
+        each store,i in stores 
+          tr.stores        
+            each value,key in store
+              if key != 'ButikID' && key != 'Hemsida'
+                td= value 
+              else if key === 'Hemsida'
+                td
+                  a(href=`${value}` role="button").btn.btn-info Gå till butik 
+                    i.bi.bi-box-arrow-right
+              else 
+                if  key != 'ButikID'
+                  td=value
+
+include footer.pug

@@ -1,0 +1,21 @@
+include head.pug
+
+body 
+  include navigation.pug 
+
+  section.d-flex.flex-wrap.justify-content-center.m-5-flex-column
+    a(href="/authors").col-12.font-weight-bold.text-dark.m-5
+          i.bi.bi-arrow-left 
+          span Tillbaka till alla Författare 
+    if authors.length > 0 
+      h1.col-12.m-5.text-center Titlar av #{authors[0].namn}
+
+      ul  
+        each item in authors
+          each book,key in item
+            if key === 'Titel'
+              li= book
+    else 
+      p Vi har tyvärr inga böcker från denna författaren.
+
+  include footer.pug

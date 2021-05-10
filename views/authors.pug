@@ -1,0 +1,27 @@
+include head.pug
+
+body 
+  include navigation.pug 
+  section.d-flex.flex-wrap.justify-content-center.m-5
+    h1 Våra Författare 
+
+    table.table
+      thead.thead-dark
+        tr
+          each author,index in authors 
+            if index === 0
+                each key in Object.keys(author)
+                  if key === 'FörfattarID'
+                    th #
+                  else
+                    th=key
+      tbody 
+        each author,i in authors 
+          tr(onclick=`goToAuthor(${author.FörfattarID})`)          
+            each value,key in author
+              if key === 'Födelsedatum'
+                td=moment(value).format('YYYY-MM-DD')
+              else
+                td= value 
+
+include footer.pug

@@ -1,0 +1,14 @@
+include head.pug 
+
+body 
+  include navigation.pug
+
+  section.d-flex.justify-content-center.m-5
+    div.text-center
+      h1=status + ' ' + statusName 
+      p= message
+      
+      if status === 503
+        i.bi.bi-tools(style="font-size:60px;")
+      else 
+        i.bi.bi-search(style="font-size:60px;")

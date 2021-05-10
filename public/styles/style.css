@@ -1,0 +1,51 @@
+.active,
+.active::before {
+  transition: 0.2s;
+  transform: rotate(180deg);
+}
+
+th:not(.stores),
+tbody > tr:not(.stores) {
+  cursor: pointer;
+}
+
+body > section {
+  min-height: 100vh;
+}
+
+ul > li {
+  font-size: 20px;
+}
+
+footer {
+  background: rgb(61, 8, 45);
+}
+
+.social > i {
+  font-size: 30px;
+  margin: 30px;
+}
+
+footer h3 {
+  font-size: 1rem;
+}
+
+#submit-newsletter:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+}
+
+nav {
+  background: rgb(109, 15, 81);
+}
+
+.tooltip-form {
+  font-size: 12px;
+  color: rgb(193 30 143);
+}
+
+.footer-content,
+.header-content {
+  width: 100%;
+  max-width: 960px;
+}

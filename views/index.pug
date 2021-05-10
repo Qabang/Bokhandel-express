@@ -1,0 +1,53 @@
+include head.pug
+
+body 
+  include navigation.pug 
+
+  section.d-flex.flex-wrap.justify-content-center.m-5
+    h1.col-12 The Joined Bookstore 
+    table.table.table-hover 
+      thead.thead-dark
+        tr
+          -let authorsOccurances = []
+          each item,index in bookAuthors
+            each name, key in item
+              if index === 0
+                //- td= key 
+                th(onClick=`sortTable('${key}')`)=key
+                  if key === orderBy
+                    i(id=key).bi.bi-caret-down-fill.ml-2.active
+                  else
+                    i(id=key).bi.bi-caret-down-fill.ml-2
+
+              if key = 'ISBN13'
+                if authorsOccurances[name]
+                  -authorsOccurances[name].push(name)
+                else 
+                  -authorsOccurances[name] = []  
+      tbody
+          each item,index in bookAuthors 
+            tr(onclick= `goTo(${bookAuthors[index].ISBN13})`)   
+              -let isbn = '' 
+              each value, keyValue in item 
+                if keyValue === 'ISBN13'
+                  -isbn = value
+                  
+                if authorsOccurances[isbn].length < 1
+                  if keyValue === 'Pris'
+                      td=value + ' kr'
+                  else
+                    td= value
+                else
+                  if bookAuthors.map((o) => o.ISBN13).indexOf(isbn) == index
+                    if keyValue === 'Författare'
+                      td=value + ' m.fl'
+                    else if keyValue === 'Pris'
+                      td=value + ' kr'
+                    else
+                      td=value
+               
+   
+
+
+
+include footer.pug

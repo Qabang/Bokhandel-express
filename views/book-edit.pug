@@ -1,0 +1,50 @@
+include head.pug
+
+body 
+  include navigation.pug 
+
+  if error
+      if error.length > 0
+        div.alert.alert-danger.text-center(role="alert")
+          p Det fanns fel i formuläret
+          ul.text-left
+            each err in error
+              li=err.msg
+  section.d-flex.flex-wrap.justify-content-center.m-5
+    
+    h1.col-12.text-center.m-3 Ändra #{book.titel}
+    section.col-3.d-flex.flex-column
+      img(src=`https://image.bokus.com/images/${book.ISBN13}`)
+      
+    section.col-3.d-flex.flex-column
+      form(method="post")
+        label(for='title') Titel: 
+        input#title(type="text", name="Titel" value=book.titel).form-control.mb-3
+        div
+          
+          label(for="author").col-form-label Författare: 
+          div.tooltip-form Tips: Håll in ctrl för att välja flera författare
+          select#author(name="författare" multiple).form-control.mb-3 
+            each bookAuthor in bookAuthors
+              option(value=bookAuthor.författarID selected="selected")=bookAuthor.Författare
+
+            each author in authors 
+              option(value=author.FörfattarID)=author.namn
+        br
+
+        label(for='price').col-form-label Pris 
+        input#price(type="number", name="Pris" value=book.pris).form-control.mb-3
+        label(for="category").col-form-label Kategori 
+        select(name="Kategori").form-control.mb-3
+          each item in category
+            option(value=item.KategoriID)=item.Kategori
+
+        label(for="date").col-form-label Utgivningsdatum 
+        input#date(type="date", name="Utgivningsdatum" value=moment(book.utgivningsdatum).format('YYYY-MM-DD')).form-control.mb-3
+
+        input(type="submit" value="Spara").btn.mt-4.btn-success
+
+        button(type="button" value="Tabort" onClick=`deleteBook(${book.ISBN13})`).btn.mt-4.btn-danger.ml-2 Tabort
+
+  include footer.pug          
+
